@@ -1,0 +1,4 @@
+from statistics import variance
+
+
+variance i=1
