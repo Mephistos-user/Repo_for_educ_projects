@@ -5,10 +5,20 @@ html {
     font-family: 'Inter';
 }
 h1 {
-    font-size: 2.2rem;
+    font-family: 'Inter';
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -1.28px;
 }
 p {
-    font-size: 1.3rem;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 166.667% */
+    letter-spacing: -0.36px;
 }
 header {
     display: flex;
@@ -16,7 +26,7 @@ header {
     background: #043873;
     flex-direction:  row;
     position: fixed;
-    width: 70vw;
+    width: 80vw;
     height: 70px;
     margin: 0 10vw;
     top: 0px;
@@ -27,9 +37,15 @@ header li a {
     background: none;
 }
 .logo {
-    background: #4F9CF9;
-    border-radius: 7px;
+    display: flex;
+    flex-direction: row;
     margin: 0.5rem 0.5rem;
+    top: 2.5px;
+}
+.logo img {
+    width: 37px;
+    height: 29px;
+    top: 2.5px;
 }
 .login {
     color: #043873;
@@ -54,20 +70,28 @@ header li {
 
 main, footer {
     padding: 0;
-    width: 70vw;
+    width: 80vw;
     margin: 0 10vw;
 }
 main {
     padding-top: 40px;
 }
 .container {
-    margin-bottom: 50px;
+    z-index: 1;
+    padding: 140px 220px;
+    align-items: center;
 }
 .container:nth-child(3n+1) {
     color: #FFFFFF;
     background: #043873;
 }
-
+#background1 {
+    position: absolute;
+    width: 80vw;
+    height: 20em;
+    z-index: 0;
+    overflow: visible;
+}
 
 footer {
     background: #043873;
@@ -80,24 +104,56 @@ a {
     position: relative;
     top: 10px;
     padding: 8px 10px;
+    text-decoration:none;
+    margin-top: 60px;
 }
 .block {
-    height: 400px;
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     justify-content:center;
 }
-.block .text, .image {
-    width: 400px;
-    height: 300px;
-    padding: 50px 5px 50px 5px;
+.text {
+    width: 550px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* gap: 60px; */
+    flex: 1 0 0;
 }
+.image {
+    width: 550px;
+    height: 450px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: flex-start; */
+    /* gap: 4px; */
+}
+#marker_yellow1 {
+    position: relative;
+    width: 370px;
+    top: 197px;
+    z-index: -1;
+}
+#Your-data-image {
+    height: 300px;
+}
+
 .block:nth-child(even) {
     display: flex;
     flex-direction: row-reverse;
 }
-
+/* #sponsors {
+    align-items: center;
+    align-content: center;
+} */
+.sponsors-logo {
+    display: flex;
+    flex-direction: row;
+    background: none;
+    justify-content: space-around;
+}
 
 .plan-card {
     display: flex;
