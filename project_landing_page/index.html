@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/Repo_for_educ_projects/project_landing_page/CSS/style.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="/Repo_for_educ_projects/project_landing_page/JS/script.js"></script>
 </head>
 <body>
     <header>
@@ -13,16 +15,62 @@
             <p>whitepace</p>
         </div>
         <nav>
-            <ul>
-                <li><a href="#">Products <img src="/Repo_for_educ_projects/project_landing_page/assets/image/Strelka_vniz.png" alt=""></a></li>
-                <li><a href="#">Solutions <img src="/Repo_for_educ_projects/project_landing_page/assets/image/Strelka_vniz.png" alt=""></a></li>
-                <li><a href="#">Resources <img src="/Repo_for_educ_projects/project_landing_page/assets/image/Strelka_vniz.png" alt=""></a></li>
-                <li><a href="#">Pricing <img src="/Repo_for_educ_projects/project_landing_page/assets/image/Strelka_vniz.png" alt=""></a></li> 
-            </ul>
+            <div class="navbar">
+                <div class="menu" id="item1">
+                    <div class="item">
+                        Products <img src="/Repo_for_educ_projects/project_landing_page/assets/image/Strelka_vniz.png" alt="">
+                    </div>
+                    <div class="submenu" id="submenu1">
+                        <ul>
+                            <li><a href="#">Products-Link1</a></li>
+                            <li><a href="#">Products-Link2</a></li>
+                            <li><a href="#">Products-Link3</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu" id="item2">
+                    <div class="item">
+                        Solutions <img src="/Repo_for_educ_projects/project_landing_page/assets/image/Strelka_vniz.png" alt="">
+                    </div>
+                    <div class="submenu" id="submenu2">
+                        <ul>
+                            <li><a href="#">Solutions-Link1</a></li>
+                            <li><a href="#">Solutions-Link2</a></li>
+                            <li><a href="#">Solutions-Link3</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu" id="item3">
+                    <div class="item">
+                        Resources <img src="/Repo_for_educ_projects/project_landing_page/assets/image/Strelka_vniz.png" alt="">
+                    </div>
+                    <div class="submenu" id="submenu3">
+                        <ul>
+                            <li><a href="#">Resources-Link1</a></li>
+                            <li><a href="#">Resources-Link2</a></li>
+                            <li><a href="#">Resources-Link3</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu" id="item4">
+                    <div class="item">
+                        Pricing <img src="/Repo_for_educ_projects/project_landing_page/assets/image/Strelka_vniz.png" alt="">
+                    </div>
+                    <div class="submenu" id="submenu4">
+                        <ul>
+                            <li><a href="#">Pricing-Link1</a></li>
+                            <li><a href="#">Pricing-Link2</a></li>
+                            <li><a href="#">Pricing-Link3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </nav>
-        <a class="login" href="#">Login</a>
-        <a class="try" href="#">Try Whitepace free <img src="/Repo_for_educ_projects/project_landing_page/assets/image/Strelka_vpravo.png" alt=""></a>
-      </header>
+        <div class="">
+            <a class="login" href="#">Login</a>
+            <a class="try" href="#">Try Whitepace free <img src="/Repo_for_educ_projects/project_landing_page/assets/image/Strelka_vpravo.png" alt=""></a>
+        </div>
+  </header>
     <main>
             <div class="block container">
                 <img id="background1" src="/Repo_for_educ_projects/project_landing_page/assets/image/background/background1.png" alt="">
@@ -36,6 +84,7 @@
                 </div>
             </div>
             <div class="block container">
+                <img id="background2" src="/Repo_for_educ_projects/project_landing_page/assets/image/background/background2.png" alt="">
                 <div class="text">
                     <img id="marker_yellow1" src="/Repo_for_educ_projects/project_landing_page/assets/image/background/marker_yellow.png" alt="">
                     <h1>Project Management</h1>
@@ -86,13 +135,13 @@
                         <h3>Free</h3>
                         <h2><b>$0</b></h2>
                         <h4>Capture ideas and find them quickly</h4>
-                        <ul>
-                            <li>Sync unlimited devices</li>
-                            <li>10 GB monthly uploads</li>
-                            <li>200 MB max. note size</li>
-                            <li>Customize Home dashboard and access extra widgets</li>
-                            <li>Connect primary Google Calendar account</li>
-                            <li>Add due dates, reminders, and notifications to your tasks</li>
+                        <ul class="plan_list">
+                            <li class="list_item">Sync unlimited devices</li>
+                            <li class="list_item">10 GB monthly uploads</li>
+                            <li class="list_item">200 MB max. note size</li>
+                            <li class="list_item">Customize Home dashboard and access extra widgets</li>
+                            <li class="list_item">Connect primary Google Calendar account</li>
+                            <li class="list_item">Add due dates, reminders, and notifications to your tasks</li>
                         </ul>
                         <a href="#">Get Started</a>
                     </div>
@@ -100,13 +149,13 @@
                         <h3>Personal</h3>
                         <h2><b>$11.99</b></h2>
                         <h4>Keep home and family on track</h4>
-                        <ul>
-                            <li>Sync unlimited devices</li>
-                            <li>10 GB monthly uploads</li>
-                            <li>200 MB max. note size</li>
-                            <li>Customize Home dashboard and access extra widgets</li>
-                            <li>Connect primary Google Calendar account</li>
-                            <li>Add due dates, reminders, and notifications to your tasks</li>
+                        <ul class="plan_list">
+                            <li class="list_item">Sync unlimited devices</li>
+                            <li class="list_item">10 GB monthly uploads</li>
+                            <li class="list_item">200 MB max. note size</li>
+                            <li class="list_item">Customize Home dashboard and access extra widgets</li>
+                            <li class="list_item">Connect primary Google Calendar account</li>
+                            <li class="list_item">Add due dates, reminders, and notifications to your tasks</li>
                         </ul>
                         <a href="#">Get Started</a>
                     </div>
@@ -114,13 +163,13 @@
                         <h3>Organization</h3>
                         <h2><b>$49.99</b></h2>
                         <h4>Capture ideas and find them quickly</h4>
-                        <ul>
-                            <li>Sync unlimited devices</li>
-                            <li>10 GB monthly uploads</li>
-                            <li>200 MB max. note size</li>
-                            <li>Customize Home dashboard and access extra widgets</li>
-                            <li>Connect primary Google Calendar account</li>
-                            <li>Add due dates, reminders, and notifications to your tasks</li>
+                        <ul class="plan_list">
+                            <li class="list_item">Sync unlimited devices</li>
+                            <li class="list_item">10 GB monthly uploads</li>
+                            <li class="list_item">200 MB max. note size</li>
+                            <li class="list_item">Customize Home dashboard and access extra widgets</li>
+                            <li class="list_item">Connect primary Google Calendar account</li>
+                            <li class="list_item">Add due dates, reminders, and notifications to your tasks</li>
                         </ul>
                         <a href="#">Get Started</a>
                     </div>
