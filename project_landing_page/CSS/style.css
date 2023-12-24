@@ -1,3 +1,4 @@
+/* All */
 html {
     font-size: 18px;
 }
@@ -39,17 +40,22 @@ a {
     content: " " url(/Repo_for_educ_projects/project_landing_page/assets/image/Strelka_vpravo.png);
 }
 header {
-    display: inline-flex;
     color: #FFFFFF;
     background: #043873;
-    flex-direction:  row;
-    position: fixed;
     width: 100%;
-    padding: 0px 0px 0px 0px;
+    position: fixed;
     top: 0px;
+    z-index: 2;
+    /* margin: 0px 0px 0px 0px; */
+}
+.header-container {
+    display: inline-flex;
+    flex-direction:  row;
+    width: 75%;
+
+    padding: 0px 220px 0px 220px;
     justify-content: space-between;
     align-items: center;
-    z-index: 2;
 }
 .logo {
     display: flex;
@@ -85,7 +91,7 @@ header {
     display: flex;
     flex-direction: row;
     position: relative;
-    width: 120%;
+    width: 100%;
     justify-content: space-between;
 }
 header li {
@@ -110,28 +116,22 @@ header li {
     text-decoration:none;
     margin-top: 0px;
 }
-main, footer {
-    padding: 0;
-    width: 100vw;
-    /* margin: 0 10vw; */
-}
 main {
-    padding-top: 40px;
+    margin-top: -60px;
+    width: 100%;
+}
+section {
+    /* padding: 140px 0px 0px 0px; */
 }
 .container {
     z-index: 1;
-    align-items: center;
-}
-.container:nth-child(3n+1) {
-    color: #FFFFFF;
-    background: #043873;
+    padding: 140px 220px 140px 220px;
 }
 #background1 {
     position: absolute;
     width: 100vw;
     height: 30em;
     z-index: 0;
-
     /* background: 
      url(Repo_for_educ_projects/project_landing_page/assets/image/background/background1.png) no-repeat; */
 }
@@ -140,37 +140,40 @@ main {
     width: 35vw;
     height: 30em;
     padding-top: 320px;
-
     left: -0.5px;
     z-index: 0;
 }
-
 footer {
     background: #043873;
+    /* padding: 0px 220px 0px 220px; */
 }
-
 .block {
     display: flex;
     flex-direction: row;
     justify-content:center;
-    padding: 140px 220px;
+}
+.sect-bckgrnd-blue {
+    color: #FFFFFF;
+    background: #043873;
 }
 .text {
     width: 560px;
-    height: auto;
+    display: block;
+    box-sizing: border-box;
+    padding: 0px 60px 0px 60px;
+    flex-direction: column;
+    align-items: start;
+    flex: 1 0 0;
+}
+
+.image {
+    width: 700px;
+    height: 100%;
+    box-sizing: border-box;
     display: flex;
-    padding: 40px;
     flex-direction: column;
     align-items: flex-start;
-    /* flex: 1 0 0; */
-}
-.image {
-    width: 560px;
-    height: auto;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: flex-start; */
-    /* gap: 4px; */
+    gap: 4px;
 }
 #marker_yellow1 {
     position: relative;
@@ -210,10 +213,7 @@ footer {
     flex-direction: row;
     align-items:center;
     justify-content: space-around;
-    margin: 0px 140px;
-    /* height: 600px; */
-    padding: 140px 220px;
-
+    height: 600px;
 }
 .card-content {
     border: #FFE492 1px solid;
@@ -233,7 +233,7 @@ footer {
     height: 27rem;
     margin: 10px;
     padding: 10px 10px 40px 10px;
-    color: #FFE492;
+    color: #ffffff;
     background: #043873;
 }
 .card-content:hover a {
@@ -255,15 +255,10 @@ footer {
     flex-direction: row;
     align-items:center;
     justify-content: space-around;
-    /* height: auto; */
-    margin: 0px 140px;
-    padding: 140px 220px;
 }
 .title h1{
     text-align: center;
 }
-
-
 .autor img {
     width: 100px;
     height: 100px;
@@ -273,8 +268,7 @@ footer {
 .comment-content {
     border: none;
     border-radius: 20px;
-    /* height: auto; */
-    margin: 10px;
+    margin: 20px;
     padding: 20px;
     color: #FFFFFF;
     background: #4F9CF9;    
@@ -284,7 +278,7 @@ footer {
     background: #FFFFFF;
     border: #FFE492 1px solid;
     border-radius: 20px;
-    margin: 10px;
+    margin: 20px;
     padding: 20px;
     box-shadow: 20px 10px 5px #dfdfdf;
 }
@@ -320,20 +314,17 @@ footer {
 .comment-content:hover .autor-text h2 {
     color: #000000;
 }
-.block-started {
-    background: #043873;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    margin-top: 40px;
-}
 .started {
     width: 600px;
-    height: auto;
     display: block;
     text-align: center;
-    margin-bottom: 60px;
+}
+.apps a::after {
+    content: none;
+}
+.apps a {
+    background: none;
+    padding: 0px 40px 0px 40px;
 }
 footer {
     width: 100%;
@@ -347,34 +338,40 @@ footer {
     display: flex;
     flex-direction: column;
     color:#FFFFFF;
-    /* width: 80%; */
-
     padding: 0px 220px 0px 220px;
 }
 .footer-head {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: baseline;
 }
-
-.logo-footer {
+.footer-logo {
     display: flex;
     flex-direction: row;
     margin: 0.5rem 0.5rem;
     top: 2.5px;
-    
+    flex-grow: 0.1;
+}
+.footer-logo p, .foot-try p {
+    font-size: 0.7rem;
+}
+nav {
+    flex-grow: 0.7;
+}
+.foot-try a::after  {
+    content: " " url(/Repo_for_educ_projects/project_landing_page/assets/image/Strelka_vpravo.png);
 }
 .footer-foot {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-size: 0.7rem;
+    align-items: baseline;
 }
 .nav-footer {    
     display: flex;
-
     justify-content: space-between;
-
 }
 .footer-logo {
     display: block;
@@ -390,11 +387,20 @@ footer {
     padding-left: 0px;
     background: none;
 }
+.foot {
+    width: 500px;
+}
+.foot ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-between;
+}
+.foot a {
+    background: none;
+}
 .social a {
     background: none;
     padding: 0px 20px 0px 20px;
 }
-.apps a {
-    background: none;
-    padding: 0px 20px 0px 20px;
-}
+
