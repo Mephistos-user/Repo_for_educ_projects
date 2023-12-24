@@ -120,9 +120,9 @@ main {
     margin-top: -60px;
     width: 100%;
 }
-section {
-    /* padding: 140px 0px 0px 0px; */
-}
+/* section {
+    padding: 140px 0px 0px 0px;
+} */
 .container {
     z-index: 1;
     padding: 140px 220px 140px 220px;
