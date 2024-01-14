@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Whitepace</title>
+    <link href="assets/image/logo/Logo-Icon.png" type="image/x-icon" rel="icon">
+    <link href="assets/image/logo/Logo-Icon.png" type="image/x-icon" rel="shortcut icon">
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/style1280-1440.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="assets/fonts/Inter/Inter-VariableFont_slnt,wght.ttf" rel="stylesheet">
@@ -69,19 +72,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="button">
+                    <a class="login" href="#">Login</a>
+                    <a class="try" href="#">Try Whitepace free <img src="assets/image/Strelka_vpravo.png" alt=""></a>
+                </div>
             </nav>
-            <div class="">
-                <a class="login" href="#">Login</a>
-                <a class="try" href="#">Try Whitepace free <img src="assets/image/Strelka_vpravo.png" alt=""></a>
-            </div>
         </div>
   </header>
     <main>
         <section>
-            <div class="container block sect-bckgrnd-blue">
-                <img id="background1" src="assets/image/background/background1.png" alt="">
+            <div class="container block sect-bckgrnd-blue" id="background1">
                 <div class="text">
-                    <h1>Get More Done with whitepace</h1>
+                    <h1 id="title-h1-64">Get More Done with whitepace</h1>
                     <p>Project management software that enables your teams to collaborate, plan, analyze and manage everyday tasks</p>
                     <a href="#">Try Whitepace free</a>
                 </div>
@@ -91,11 +93,11 @@
             </div>
         </section>
         <section>
-            <div class="container block">
-                <img id="background2" src="assets/image/background/background2.png" alt="">
-                <div class="text">
-                    <img id="marker_yellow1" src="assets/image/background/marker_yellow.png" alt="">
-                    <h1>Project Management</h1>
+            <div class="container block" id="background2">
+                <div class="text mr-60 pr-22">
+                    <div class="marker">
+                        <h1 id="marker_yellow1">Project Management</h1>
+                    </div>
                     <p>Images, videos, PDFs and audio files are supported. Create math expressions and diagrams directly from the app. Take photos with the mobile app and save them to a note.</p>
                     <a href="#">Get Started</a>
                 </div>
@@ -105,10 +107,12 @@
             </div>
             <div class="container block">
                 <div>
-                    <img class="image" src="assets/image/Work-Together-Image.png" alt="">
+                    <img class="together-image" src="assets/image/Work-Together-Image.png" alt="">
                 </div>
-                <div class="text">
-                    <h1>Work together</h1>
+                <div class="text ml-100">
+                    <div class="marker">
+                        <h1 id="marker_yellow2">Work together</h1>
+                    </div>
                     <p>With whitepace, share your notes with your colleagues and collaborate on them.
                         You can also publish a note to the internet and share the URL with others.</p>
                     <a href="#">Try it now</a>
@@ -117,8 +121,10 @@
         </section>
         <section>
             <div class="container block sect-bckgrnd-blue">
-                <div class="text">
-                    <h1>Use as Extension</h1>
+                <div class="text mr-100">
+                    <div class="marker">
+                        <h1 id="marker_yellow3">Use as Extension</h1>
+                    </div>
                     <p>Use the web clipper extension, available on Chrome and Firefox, to save web pages or take screenshots as notes.</p>
                     <a href="#">Let’s Go</a>
                 </div>
@@ -132,8 +138,10 @@
                 <div>
                     <img class="image" src="https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010117.jpg?w=1380&t=st=1701600459~exp=1701601059~hmac=2edcc1dfbf5892ababa68172603742ec479c201ec5b0fc1c6d336ba6460db9ce" alt="No foto">
                 </div>
-                <div class="text">
-                    <h1>Customise it to your needs</h1>
+                <div class="text ml-100">
+                    <div class="marker">
+                        <h1 id="marker_yellow4">Customise it to your needs</h1>
+                    </div>
                     <p>Customise the app with plugins, custom themes and multiple text editors (Rich Text or Markdown). Or create your own scripts and plugins using the Extension API.</p>
                     <a href="#">Let’s Go</a>
                 </div>
@@ -141,14 +149,16 @@
         </section>
         <section>
             <div class="container">
-                <h1 style="text-align: center;">Choose Your Plan</h1>
-                <p style="text-align: center;">Whether you want to get organized, keep your personal life on track, or boost workplace productivity, Evernote has the right plan for you.
+                <div class="marker">
+                    <h1 id="marker_yellow5" style="text-align: center;">Choose Your Plan</h1>
+                </div>
+                <p style="text-align: center; margin-bottom: 40px;">Whether you want to get organized, keep your personal life on track, or boost workplace productivity, Evernote has the right plan for you.
                 </p>
                 <div class="plan-card">
                     <div class="card-content">
-                        <h3>Free</h3>
+                        <h5>Free</h5>
                         <h2><b>$0</b></h2>
-                        <h4>Capture ideas and find them quickly</h4>
+                        <p>Capture ideas and find them quickly</p>
                         <ul class="plan_list">
                             <li class="list_item">Sync unlimited devices</li>
                             <li class="list_item">10 GB monthly uploads</li>
@@ -160,9 +170,9 @@
                         <a href="#">Get Started</a>
                     </div>
                     <div class="card-content">
-                        <h3>Personal</h3>
+                        <h5>Personal</h5>
                         <h2><b>$11.99</b></h2>
-                        <h4>Keep home and family on track</h4>
+                        <p>Keep home and family on track</p>
                         <ul class="plan_list">
                             <li class="list_item">Sync unlimited devices</li>
                             <li class="list_item">10 GB monthly uploads</li>
@@ -174,9 +184,9 @@
                         <a href="#">Get Started</a>
                     </div>
                     <div class="card-content">
-                        <h3>Organization</h3>
+                        <h5>Organization</h5>
                         <h2><b>$49.99</b></h2>
-                        <h4>Capture ideas and find them quickly</h4>
+                        <p>Capture ideas and find them quickly</p>
                         <ul class="plan_list">
                             <li class="list_item">Sync unlimited devices</li>
                             <li class="list_item">10 GB monthly uploads</li>
@@ -191,21 +201,19 @@
             </div>
         </section>
         <section>
-            <div class="container block sect-bckgrnd-blue">
+            <div class="container block sect-bckgrnd-blue" id="background3">
                 <div class="your-work">
-                    <div >
-                        <h1>Your work, everywhere you are</h1>
+                        <h1 id="marker_blue">Your work, everywhere you are</h1>
                         <p>Access your notes from your computer, phone or tablet by synchronising with various services, including whitepace, Dropbox and OneDrive. The app is available on Windows, macOS, Linux, Android and iOS. A terminal app is also available!
                         </p>
                         <a href="#">Try Taskey</a>
-                    </div>
                 </div>
             </div>
         </section>
         <section>
             <div class="container block">
                 <div class="text">
-                    <h1>100% your data</h1>
+                    <h1 id="your-data">100% your data</h1>
                     <p>The app is open source and your notes are saved to an open format, so you'll always have access to them. Uses End-To-End Encryption (E2EE) to secure your notes and ensure no-one but yourself can access them.
                     </p>
                     <a href="#">Read more</a>
@@ -227,11 +235,11 @@
             </div>
         </section>
         <section>
-            <div class="container block sect-bckgrnd-blue">
+            <div class="container block sect-bckgrnd-blue" id="background4">
                 <div>
-                    <img class="image" src="assets/image/Apps.png" alt="">
+                    <img class="work-image" src="assets/image/Apps.png" alt="">
                 </div>
-                <div class="text">
+                <div class="text ml-100">
                     <h1>Work with Your Favorite Apps Using whitepace</h1>
                     <p>Whitepace teams up with your favorite software. Integrate with over 1000+ apps with Zapier to have all the tools you need for your project success.</p>
                     <a href="#">Read more</a>
@@ -240,7 +248,7 @@
         </section>
         <section>
             <div class="container title">
-                <h1>What Our Clients Says</h1>
+                <h1 id="marker_yellow6">What Our Clients Says</h1>
                 <div class="comment-card">
                     <div class="comment-content">
                         <figure>
@@ -282,32 +290,35 @@
                         </div>
                     </div>
                 </div>
+                <img id="slider" src="/Repo_for_educ_projects/project_landing_page/assets/image/Slider.png" alt="">
             </div>
         </section>
         <section>
-            <div class="container block sect-bckgrnd-blue">
+            <div class="container block sect-bckgrnd-blue" style="padding-bottom: 32px;">
                 <div class="started">
-                    <h1>Try Whitepace today</h1>
-                    <p>Get started for free.</p>
-                    <p>Add your whole team as your needs grow.</p>
-                    <a href="#">Try Taskey free</a>
-                    <p>On a big team? Contact sales</p>
-                    <div class="apps">
-                        <a href="">
-                            <img src="assets/image/logo/apple-white-logo.png" alt="">
-                        </a>
-                        <a href="">
-                            <img src="assets/image/logo/windows-logo.png" alt="">
-                        </a>
-                        <a href="">
-                            <img src="assets/image/logo/android-logo.png" alt="">
-                        </a>
+                    <div class="title-mb24">
+                        <h1>Try Whitepace<br/>today</h1>
+                        <p>Get started for free.<br/> Add your whole team as your needs grow.</p>
+                    </div>
+                    <div class="content-mb40">
+                        <a href="#">Try Taskey free</a>
+                        <p>On a big team? Contact sales</p>
+                        <div class="apps">
+                            <a href="">
+                                <img src="assets/image/logo/apple-white-logo.png" alt="">
+                            </a>
+                            <a href="">
+                                <img src="assets/image/logo/windows-logo.png" alt="">
+                            </a>
+                            <a href="">
+                                <img src="assets/image/logo/android-logo.png" alt="">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>  
     </main>
-
     <footer>
         <div class="footer">
             <div class="footer-head">
@@ -366,21 +377,23 @@
             </div>
             <hr style="width: 100%; left: 0px;">
             <div class="footer-foot">
-                <div class="lang">
-                    <img src="assets/image/world.png" alt="">
-                    <select name="language" id="language" style="background: #043873; color: white; border: none;">
-                        <option value="English">English</option>
-                        <option value="Russian">Russian</option>
-                    </select>
+                <div class="footer-foot-wrap">
+                    <div class="lang">
+                        <img src="assets/image/world.png" alt="">
+                        <select name="language" id="language" style="background: #043873; color: white; border: none;">
+                            <option value="English">English</option>
+                            <option value="Russian">Russian</option>
+                        </select>
+                    </div>
+                    <div class="foot">
+                        <ul>
+                            <li><a href="#">Terms & privacy</a></li>
+                            <li><a href="#">Security</a></li>
+                            <li><a href="#">Status</a></li>
+                        </ul>
+                    </div>
+                    &copy; 2021 Whitepace LLC.
                 </div>
-                <div class="foot">
-                    <ul>
-                        <li><a href="#">Terms & privacy</a></li>
-                        <li><a href="#">Security</a></li>
-                        <li><a href="#">Status</a></li>
-                    </ul>
-                </div>
-                &copy; 2021 Whitepace LLC.
                 <div class="social">
                     <a href="#">
                         <img src="assets/image/logo/Facebook-logo.png" alt="">

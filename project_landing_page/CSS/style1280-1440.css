@@ -1,0 +1,48 @@
+@media (min-width: 1280px) and (max-width: 1440px) {
+    /*  */
+    nav {
+        gap: 0vw;
+    }
+    /*  */
+    .header-container {
+        padding: 16px 1.667vw 16px 1.667vw;
+    }
+    /*  */
+    .navbar {
+        width: 35vw;
+    }
+    /*  */
+    .container {
+        padding: 140px 1.667vw 140px 1.667vw;
+    }
+
+    .your-work {
+        width: 1064px;
+    }
+
+    #Your-data-image {
+        width: 38vw;
+    }
+
+    .work-image {
+        width: 31vw;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    /*  */
+    .footer {
+        padding: 140px 1.667vw 32px 1.667vw;
+    }
+    /*  */
+    .footer-head {
+        width: 100%;
+        gap: auto;
+    }
+    /*  */
+    .menu {
+        width: 14.5vw;
+    }
+}
