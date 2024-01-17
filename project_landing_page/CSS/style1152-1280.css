@@ -1,0 +1,57 @@
+@media (min-width: 1152px) and (max-width: 1280px) {
+    .navbar {
+        display: none;
+    }
+    .navbar-icon {
+        display:flex;
+        cursor: pointer;
+        margin: 16px 20px 0px 20px;
+        align-items: flex-start;
+        gap: 1.66vw;
+    }
+    .navbar2 {
+        display: flex;
+        width: 42vw;
+        align-items: flex-start;
+        gap: 1.66vw;
+        position: absolute;
+        padding: 20px;
+        top: 83px;
+        right: 0px;
+        background-color: #043873;
+        border: #FFE492 0.05px solid;
+    }
+    h1 {
+        font-size: 3.555rem;
+        letter-spacing: -1.28px;
+    }
+    /*  */
+    nav {
+        gap: 0vw;
+    }
+    /*  */
+    .header-container {
+        padding: 16px 1.667vw 16px 1.667vw;
+    }
+    /*  */
+    .navbar {
+        width: 35vw;
+    }
+    /*  */
+    .container {
+        padding: 140px 1.667vw 140px 1.667vw;
+    }
+    /*  */
+    .footer {
+        padding: 140px 1.667vw 32px 1.667vw;
+    }
+    /*  */
+    .footer-head {
+        width: 100%;
+        gap: auto;
+    }
+    /*  */
+    .menu {
+        width: 14.5vw;
+    }
+}

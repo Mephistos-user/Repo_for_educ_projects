@@ -15,23 +15,6 @@
     .container {
         padding: 140px 1.667vw 140px 1.667vw;
     }
-
-    .your-work {
-        width: 1064px;
-    }
-
-    #Your-data-image {
-        width: 38vw;
-    }
-
-    .work-image {
-        width: 31vw;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-    }
     /*  */
     .footer {
         padding: 140px 1.667vw 32px 1.667vw;
