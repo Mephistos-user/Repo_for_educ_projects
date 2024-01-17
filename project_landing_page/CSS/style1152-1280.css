@@ -29,6 +29,9 @@
     nav {
         gap: 0vw;
     }
+    .nav2, .navbar-icon2 {
+        display: none;
+    }
     /*  */
     .header-container {
         padding: 16px 1.667vw 16px 1.667vw;

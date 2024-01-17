@@ -116,6 +116,9 @@ nav {
     align-items: center;
     gap: 3vw;
 }
+.nav2, .navbar-icon2 {
+    display: none;
+}
 .menu {
     position: relative;
     display: inline-block;
@@ -136,7 +139,7 @@ nav {
     background: #4F9CF9;
     border-radius: 7px;
 }
-.navbar {
+.navbar, .navbar2 {
     display: flex;
     width: 32vw;
     align-items: flex-start;

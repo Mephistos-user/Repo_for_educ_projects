@@ -1,4 +1,4 @@
-@media (min-width: 960px) and (max-width: 1152px) {
+    @media (min-width: 960px) and (max-width: 1152px) {
     h1 {
         text-align: center;
         font-size: 3rem;
@@ -33,7 +33,7 @@
     .navbar {
         display: none;
     }
-    .navbar-icon {
+    .navbar-icon2 {
         display:flex;
         cursor: pointer;
         margin: 16px 20px 0px 20px;
@@ -55,41 +55,81 @@
     /*  */
     nav {
         gap: 0vw;
+        align-items: flex-start;
+    }
+    .nav1 {
+        display: none;
+    }
+    .nav2 {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 90px;
+        right: 0px;
+        gap: 10vw;
+        background-color: #043873;
     }
     /*  */
     .header-container {
         padding: 16px 1.667vw 16px 1.667vw;
     }
     /*  */
-    .navbar {
+    /* .navbar {
         width: 35vw;
-    }
+    } */
     /*  */
     .container {
         padding: 100px 1.667vw 100px 1.667vw;
     }
-
+    .dpnone {
+        display: none;
+    }
     .plan-card {
+        /* display: flex;
+        width: 1481px;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        position: absolute; */
         justify-content: center;
         position: relative;
-        width: 150vw;
+        width: 150%;
         min-height: 55vmin;
         margin-left: -25vw;
         margin-right: -25vw;
     }
-    .card-content {
+    /* .card-content {
         width: 50vw;
-    }
+    } */
     .comment-card {
+        /* display: flex;
+        width: 1088px;
+        align-items: center;
+        gap: 32px;
+        position: absolute; */
+
         justify-content: center;
         position: relative;
         width: 150vw;
         min-height: 55vmin;
         margin-left: -25vw;
         margin-right: -25vw;
+
     }
-
-
+    .sponsors-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 100px;
+        align-self: stretch;
+    }
+    .your-work {
+        display: flex;
+        width: 604px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 60px;
+    }
     /*  */
     .footer {
         padding: 140px 1.667vw 32px 1.667vw;
@@ -102,5 +142,17 @@
     /*  */
     .menu {
         width: 14.5vw;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+    }
+    .button2 {
+        display: flex;
+        flex-direction: column;
+        height: 50px;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 1.24vw;
     }
 }
