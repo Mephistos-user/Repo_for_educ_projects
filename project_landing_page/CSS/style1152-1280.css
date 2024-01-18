@@ -3,16 +3,24 @@
         display: none;
     }
     .navbar-icon {
+        display:-webkit-box;
+        display:-ms-flexbox;
         display:flex;
         cursor: pointer;
         margin: 16px 20px 0px 20px;
-        align-items: flex-start;
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start;
         gap: 1.66vw;
     }
     .navbar2 {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         width: 42vw;
-        align-items: flex-start;
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start;
         gap: 1.66vw;
         position: absolute;
         padding: 20px;
