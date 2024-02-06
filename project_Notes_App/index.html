@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>NotesApp</h1>
+    <div class="add-note">
+        <form action="" method="post">
+            <label for="addNote">
+                Add note: 
+            </label>
+            <input id="area" name="addNote" type="text" placeholder="Напишите заметку">
+            <button onclick="add_note(area.value)">
+                Add
+            </button>
+        </form>
+    </div>
+    <div class="list-notes">
+        <h3>Notes</h3>
+        <script>
+            // вывод заметок из localStorage в документ
+            let note = document.querySelector('.list-notes');
+
+            for (let i = 0; i < localStorage.length; i++) {
+                let divCont = document.createElement('div');
+                let divBtn = document.createElement('div');
+                let p = document.createElement('p');
+                let btnEdit = document.createElement('button');
+                let btnDelete = document.createElement('button');
+
+                let key = localStorage.key(i);
+
+                divCont.className = 'note-container';
+                divCont.style = 'display: flex; flex-direction: row; margin: 10px auto; padding: 10px; border: 1px solid red; width: 500px; justify-content: space-between;';
+
+                divBtn.className = 'btn-container';
+                divBtn.style = 'display: flex; flex-direction: row; border: 1px solid green; justify-content: space-between;';
+
+                p.textContent = `Запись №${Number(key) + 1}: ${localStorage.getItem(key)}`;
+                p.style = 'margin: 10px; padding: 10px; border: 1px solid yellow';
+
+                btnEdit.textContent = 'Edit';
+                btnEdit.className = 'btn-edit';
+                btnEdit.style = 'margin: 10px';
+
+                btnDelete.textContent = 'Delete';
+                btnDelete.className = 'btn-del'
+                btnDelete.style = 'margin: 10px';
+
+                note.appendChild(divCont)
+                    .append(p, divBtn)
+                    divBtn.append(btnEdit, btnDelete);
+            }
+        </script>
+
+    </div>
+    <script>
+        // функция добавления записи
+        let key;
+        function add_note(value) {
+            key = localStorage.length;
+            // console.log(key);
+            this.value = value;
+            // console.log(this.value);
+            localStorage.setItem(key, this.value);
+            // console.log(String(key) + this.value);
+            // key++;
+            // console.log(key);
+            alert('Заметка добавлена')
+        };
+
+
+        // функция редактирования
+
+
+        // функция удаления
+        // function delNote() {
+        //     localStorage.removeItem(key);
+        // }
+
+        // функция вывода
+
+        function outputNote() {
+            for (let i = 0; i < localStorage.length; i++) {
+                let key = localStorage.key(i);
+                console.log(`${key}:${localStorage.getItem(key)}`);
+            }
+        }
+
+    </script>
+</body>
+</html>
