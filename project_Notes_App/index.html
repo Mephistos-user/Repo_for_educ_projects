@@ -3,92 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Notes Application</title>
+    <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
     <h1>NotesApp</h1>
     <div class="add-note">
-        <form action="" method="post">
+        <form action="" method="">
             <label for="addNote">
                 Add note: 
             </label>
-            <input id="area" name="addNote" type="text" placeholder="Напишите заметку">
-            <button onclick="add_note(area.value)">
+            <input id="areaAdd" name="addNote" type="text" placeholder="Напишите заметку">
+            <button onclick="add_note(areaAdd.value)">
                 Add
             </button>
         </form>
     </div>
     <div class="list-notes">
-        <h3>Notes</h3>
+        <h2>Notes:</h2>
         <script>
             // вывод заметок из localStorage в документ
-            let note = document.querySelector('.list-notes');
+            function createDivNote(keyIndex) {
+                let note = document.querySelector('.list-notes');
+                let value = localStorage.getItem(keyIndex);
 
-            for (let i = 0; i < localStorage.length; i++) {
                 let divCont = document.createElement('div');
-                let divBtn = document.createElement('div');
-                let p = document.createElement('p');
-                let btnEdit = document.createElement('button');
-                let btnDelete = document.createElement('button');
-
-                let key = localStorage.key(i);
-
                 divCont.className = 'note-container';
-                divCont.style = 'display: flex; flex-direction: row; margin: 10px auto; padding: 10px; border: 1px solid red; width: 500px; justify-content: space-between;';
 
+                let divBtn = document.createElement('div');
                 divBtn.className = 'btn-container';
-                divBtn.style = 'display: flex; flex-direction: row; border: 1px solid green; justify-content: space-between;';
 
-                p.textContent = `Запись №${Number(key) + 1}: ${localStorage.getItem(key)}`;
-                p.style = 'margin: 10px; padding: 10px; border: 1px solid yellow';
+                let p = document.createElement('p');
+                p.id = 'paragraf' + keyIndex;
+                p.textContent = `${Number(keyIndex) + 1}: ${value}`;
 
+                let inp = document.createElement('input');
+                inp.style = 'display: none';                
+                inp.id = 'inp-area' + keyIndex;
+
+                let btnEdit = document.createElement('button');
                 btnEdit.textContent = 'Edit';
-                btnEdit.className = 'btn-edit';
-                btnEdit.style = 'margin: 10px';
+                btnEdit.id = 'btn-edit' + keyIndex;
+                btnEdit.setAttribute('onclick', 'editNote(this.id)');
 
-                btnDelete.textContent = 'Delete';
-                btnDelete.className = 'btn-del'
-                btnDelete.style = 'margin: 10px';
+                let btnDelete = document.createElement('button');
+                btnDelete.textContent = 'Del';
+                btnDelete.id = 'btn-del' + keyIndex
+                // btnDelete.onclick = "delNote()"; // способ не работает
+                btnDelete.setAttribute('onclick', 'delNote(this.id)');
 
+                let btnOk = document.createElement('button');
+                btnOk.textContent = 'Ok';
+                btnOk.id = 'btn-ok' + keyIndex
+                btnOk.style = 'display: none;';
+                btnOk.setAttribute('onclick', 'saveNote(this.id)');
+
+                // создаем контейнер с вложенными элементами
                 note.appendChild(divCont)
-                    .append(p, divBtn)
-                    divBtn.append(btnEdit, btnDelete);
+                    .append(p, inp, divBtn)
+                    divBtn.append(btnEdit, btnOk, btnDelete);
+                
             }
+
+             // функция вывода
+             function outputNote() {   
+                // получаем массив ключей и сортируем
+                let keysArr = Object.keys(localStorage);
+                keysArr = keysArr.sort();
+
+                for (let i = 0; i < localStorage.length; i++) { 
+                    createDivNote(keysArr[i]);
+                }
+            }
+
+            outputNote();
         </script>
 
     </div>
     <script>
+
         // функция добавления записи
-        let key;
         function add_note(value) {
-            key = localStorage.length;
-            // console.log(key);
-            this.value = value;
-            // console.log(this.value);
-            localStorage.setItem(key, this.value);
-            // console.log(String(key) + this.value);
-            // key++;
-            // console.log(key);
-            alert('Заметка добавлена')
+
+            // this.value = value;
+            let l = localStorage.length
+            localStorage.setItem(l, value);
+            
+            createDivNote(l);
+
         };
 
-
-        // функция редактирования
-
-
         // функция удаления
-        // function delNote() {
-        //     localStorage.removeItem(key);
-        // }
+         function delNote(id) {
 
-        // функция вывода
+            // console.log("into remove()");
+            // получаем число из idName
+            let cn = id.match(/\d/g).join();
 
-        function outputNote() {
-            for (let i = 0; i < localStorage.length; i++) {
-                let key = localStorage.key(i);
-                console.log(`${key}:${localStorage.getItem(key)}`);
+            // console.log(cn);
+            
+            if(confirm('Вы уверены, что хотите удалить запись?')) {
+                // localStorage.removeItem('numberbyId ' + cn);
+                // localStorage.removeItem(cn);
+                let parent = document.getElementById(id).parentElement.parentElement.remove();
+                // console.log(typeof cn);
+                // console.log(cn);
+                localStorage.removeItem(cn);
+                // console.log("Success remove()" + id);
             }
         }
+        // функция редактирования
+        function editNote(id) {
+            // получаем число из idName
+            let cn = id.match(/\d/g).join();
+            // получаем родительский контейнер
+            let parent = document.getElementById(id).parentElement.parentElement;
+
+            let paragrafDel = parent.firstChild;
+            let btnDivDel = parent.lastChild;
+            // прячем параграф и кнопки
+            paragrafDel.style = 'display: none;';
+            btnDivDel.firstChild.style = 'display: none;';
+            btnDivDel.lastChild.style = 'display: none;';
+            // "достаем" поле для ввода и кнопку "Ок"
+            let inp = document.getElementById('inp-area' + cn);
+            inp.style = 'display: block;'
+            inp.value = localStorage.getItem(cn);
+
+            let btnOk = document.getElementById('btn-ok' + cn);
+            btnOk.style = 'display: block; background: green;'
+
+        }
+        // функция сохранения
+        function saveNote(id) {
+
+                let cn = id.match(/\d/g).join();
+
+                let btnOk = document.querySelector('#btn-ok' + cn);
+                btnOk.style = 'display: none;';
+
+                let btnEdit = document.querySelector('#btn-edit' + cn);
+                btnEdit.style = 'display: block;';
+
+                let btnDelete = document.querySelector('#btn-del' + cn);
+                btnDelete.style = 'display: block;';
+
+                let inputArea = document.querySelector('#inp-area' + cn);
+                inputArea.style = 'display: none;';
+
+                localStorage.setItem(cn, inputArea.value);
+
+                let p = document.querySelector('#paragraf' + cn);
+                p.style = 'display: block;';
+                p.textContent = `${+cn + 1}: ` + localStorage.getItem(cn);
+                console.log(p.textContent);
+
+                
+            }
+
 
     </script>
 </body>
