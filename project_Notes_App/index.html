@@ -14,154 +14,20 @@
                 Add note: 
             </label>
             <input id="areaAdd" name="addNote" type="text" placeholder="Напишите заметку">
-            <button onclick="add_note(areaAdd.value)">
+            <button class="btn-add" type="reset">
                 Add
             </button>
+
+            <!-- <button onclick="add_note(areaAdd.value)">
+                Add
+            </button> -->
         </form>
     </div>
     <div class="list-notes">
         <h2>Notes:</h2>
-        <script>
-            // вывод заметок из localStorage в документ
-            function createDivNote(keyIndex) {
-                let note = document.querySelector('.list-notes');
-                let value = localStorage.getItem(keyIndex);
-
-                let divCont = document.createElement('div');
-                divCont.className = 'note-container';
-
-                let divBtn = document.createElement('div');
-                divBtn.className = 'btn-container';
-
-                let p = document.createElement('p');
-                p.id = 'paragraf' + keyIndex;
-                p.textContent = `${Number(keyIndex) + 1}: ${value}`;
-
-                let inp = document.createElement('input');
-                inp.style = 'display: none';                
-                inp.id = 'inp-area' + keyIndex;
-
-                let btnEdit = document.createElement('button');
-                btnEdit.textContent = 'Edit';
-                btnEdit.id = 'btn-edit' + keyIndex;
-                btnEdit.setAttribute('onclick', 'editNote(this.id)');
-
-                let btnDelete = document.createElement('button');
-                btnDelete.textContent = 'Del';
-                btnDelete.id = 'btn-del' + keyIndex
-                // btnDelete.onclick = "delNote()"; // способ не работает
-                btnDelete.setAttribute('onclick', 'delNote(this.id)');
-
-                let btnOk = document.createElement('button');
-                btnOk.textContent = 'Ok';
-                btnOk.id = 'btn-ok' + keyIndex
-                btnOk.style = 'display: none;';
-                btnOk.setAttribute('onclick', 'saveNote(this.id)');
-
-                // создаем контейнер с вложенными элементами
-                note.appendChild(divCont)
-                    .append(p, inp, divBtn)
-                    divBtn.append(btnEdit, btnOk, btnDelete);
-                
-            }
-
-             // функция вывода
-             function outputNote() {   
-                // получаем массив ключей и сортируем
-                let keysArr = Object.keys(localStorage);
-                keysArr = keysArr.sort();
-
-                for (let i = 0; i < localStorage.length; i++) { 
-                    createDivNote(keysArr[i]);
-                }
-            }
-
-            outputNote();
-        </script>
-
     </div>
-    <script>
 
-        // функция добавления записи
-        function add_note(value) {
-
-            // this.value = value;
-            let l = localStorage.length
-            localStorage.setItem(l, value);
-            
-            createDivNote(l);
-
-        };
-
-        // функция удаления
-         function delNote(id) {
-
-            // console.log("into remove()");
-            // получаем число из idName
-            let cn = id.match(/\d/g).join();
-
-            // console.log(cn);
-            
-            if(confirm('Вы уверены, что хотите удалить запись?')) {
-                // localStorage.removeItem('numberbyId ' + cn);
-                // localStorage.removeItem(cn);
-                let parent = document.getElementById(id).parentElement.parentElement.remove();
-                // console.log(typeof cn);
-                // console.log(cn);
-                localStorage.removeItem(cn);
-                // console.log("Success remove()" + id);
-            }
-        }
-        // функция редактирования
-        function editNote(id) {
-            // получаем число из idName
-            let cn = id.match(/\d/g).join();
-            // получаем родительский контейнер
-            let parent = document.getElementById(id).parentElement.parentElement;
-
-            let paragrafDel = parent.firstChild;
-            let btnDivDel = parent.lastChild;
-            // прячем параграф и кнопки
-            paragrafDel.style = 'display: none;';
-            btnDivDel.firstChild.style = 'display: none;';
-            btnDivDel.lastChild.style = 'display: none;';
-            // "достаем" поле для ввода и кнопку "Ок"
-            let inp = document.getElementById('inp-area' + cn);
-            inp.style = 'display: block;'
-            inp.value = localStorage.getItem(cn);
-
-            let btnOk = document.getElementById('btn-ok' + cn);
-            btnOk.style = 'display: block; background: green;'
-
-        }
-        // функция сохранения
-        function saveNote(id) {
-
-                let cn = id.match(/\d/g).join();
-
-                let btnOk = document.querySelector('#btn-ok' + cn);
-                btnOk.style = 'display: none;';
-
-                let btnEdit = document.querySelector('#btn-edit' + cn);
-                btnEdit.style = 'display: block;';
-
-                let btnDelete = document.querySelector('#btn-del' + cn);
-                btnDelete.style = 'display: block;';
-
-                let inputArea = document.querySelector('#inp-area' + cn);
-                inputArea.style = 'display: none;';
-
-                localStorage.setItem(cn, inputArea.value);
-
-                let p = document.querySelector('#paragraf' + cn);
-                p.style = 'display: block;';
-                p.textContent = `${+cn + 1}: ` + localStorage.getItem(cn);
-                console.log(p.textContent);
-
-                
-            }
-
-
-    </script>
+    <script src="./script/script.js"></script>
+    <script src="./script/script2.js"></script>
 </body>
 </html>
