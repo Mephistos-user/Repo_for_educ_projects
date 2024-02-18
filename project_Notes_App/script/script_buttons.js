@@ -7,6 +7,8 @@ function delNote(id) {
         animation(cn);
         setTimeout(()=> document.getElementById(id).parentElement.parentElement.remove(), 1500);
         localStorage.removeItem(cn);
+        // обновим страницу для корректного отображения порядковых номеров
+        setTimeout(()=> location.reload(), 1500);
     };
 };
 

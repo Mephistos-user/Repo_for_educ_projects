@@ -9,7 +9,7 @@ function createDivNote(keyIndex, index) {
     divCont.className = 'note-container';
     divCont.id = 'div-cont' + keyIndex;
     divCont.classList.add('p-animation');
-    divCont.classList.remove('show');
+    // divCont.classList.remove('show');
 
     // контейнер с кнопками
     let divBtn = document.createElement('div');
@@ -63,7 +63,7 @@ function outputNote() {
     for (let i = 0; i < localStorage.length; i++) {
         createDivNote(keysArr[i], i);
 
-        animation(keysArr[i])
+        animation(keysArr[i]);
     };
 };
 // вызываем функцию вывода
@@ -114,5 +114,7 @@ document.addEventListener('DOMContentLoaded', function(){
         };
         // вызываем функцию анимации через таймаут
         setTimeout(()=> animation(l), 500);
+        // обновим страницу для корректного отображения порядковых номеров
+        setTimeout(()=> location.reload(), 2200);
     };
 });
