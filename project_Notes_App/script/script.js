@@ -27,20 +27,20 @@ function createDivNote(keyIndex, index) {
 
     // кнопки редактировать, удалить, скрытая сохранить
     let btnEdit = document.createElement('button');
-    btnEdit.textContent = 'Edit';
+    btnEdit.textContent = '\u270F\uFE0F';
     btnEdit.id = 'btn-edit' + keyIndex;
     btnEdit.setAttribute('onclick', 'editNote(this.id)');
     btnEdit.classList.add('btn-edit');
 
     let btnDelete = document.createElement('button');
-    btnDelete.textContent = 'Del';
+    btnDelete.textContent = '\u274C';
     btnDelete.id = 'btn-del' + keyIndex;
     // btnDelete.onclick = "delNote()"; // способ не работает
     btnDelete.setAttribute('onclick', 'delNote(this.id)');
     btnDelete.classList.add('btn-del');
 
     let btnOk = document.createElement('button');
-    btnOk.textContent = 'Ok';
+    btnOk.textContent = '\u2714\uFE0F';
     btnOk.id = 'btn-ok' + keyIndex;
     btnOk.style = 'display: none;';
     btnOk.setAttribute('onclick', 'saveNote(this.id)');

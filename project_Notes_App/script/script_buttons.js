@@ -8,7 +8,7 @@ function delNote(id) {
         setTimeout(()=> document.getElementById(id).parentElement.parentElement.remove(), 1500);
         localStorage.removeItem(cn);
         // обновим страницу для корректного отображения порядковых номеров
-        setTimeout(()=> location.reload(), 1500);
+        setTimeout(()=> location.reload(), 1000);
     };
 };
 
@@ -34,7 +34,7 @@ function editNote(id) {
     inp.value = localStorage.getItem(cn);
 
     let btnOk = document.getElementById('btn-ok' + cn);
-    btnOk.style = 'display: block; color: #FFFFFF; background-color: #47a12c;'
+    btnOk.style = 'display: block; color: #FFFFFF; background-color: chartreuse;'
 };
 
 // функция сохранения
