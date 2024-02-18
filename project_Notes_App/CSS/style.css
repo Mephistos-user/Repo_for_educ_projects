@@ -22,10 +22,17 @@ button {
     border-radius: 8px;
     font-size: 24px;
 }
+.btn-edit {
+    background-color: #fbff07;
+}
+.btn-del {
+    background-color: #f75050;
+}
 input {
     margin: 10px;
     padding: 10px;
     border: 1px solid blue;
+    border-radius: 8px;
     background-color: #abdf71;
     font-size: 24px;
     width: 800px;

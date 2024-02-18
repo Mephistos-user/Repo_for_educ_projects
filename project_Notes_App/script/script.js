@@ -30,12 +30,14 @@ function createDivNote(keyIndex, index) {
     btnEdit.textContent = 'Edit';
     btnEdit.id = 'btn-edit' + keyIndex;
     btnEdit.setAttribute('onclick', 'editNote(this.id)');
+    btnEdit.classList.add('btn-edit');
 
     let btnDelete = document.createElement('button');
     btnDelete.textContent = 'Del';
     btnDelete.id = 'btn-del' + keyIndex;
     // btnDelete.onclick = "delNote()"; // способ не работает
     btnDelete.setAttribute('onclick', 'delNote(this.id)');
+    btnDelete.classList.add('btn-del');
 
     let btnOk = document.createElement('button');
     btnOk.textContent = 'Ok';
@@ -52,13 +54,7 @@ function createDivNote(keyIndex, index) {
 // функция вывода
 function outputNote() { 
     // получаем массив ключей и сортируем
-    let keysArr = Object.keys(localStorage);
-
-    // сортируем массив по возрастанию
-    keysArr = keysArr.sort(function(a, b) {
-        return a - b;
-        });
-
+    let keysArr = keyArrAndSort();
     // вызываем последовательно циклично функцию создания контейнера
     for (let i = 0; i < localStorage.length; i++) {
         createDivNote(keysArr[i], i);
@@ -75,14 +71,28 @@ function animation(keyIndex) {
     let div_cont = document.getElementById('div-cont' + keyIndex);
 
     if(div_cont.classList.contains('show')) {
-
         div_cont.classList.remove('show');
-
     } else {
-
         div_cont.classList.add('show');
     };
 };
+
+// функция получения массива ключей и его сортировки
+function keyArrAndSort() {
+    // получаем массив ключей
+    // let keysArr = Object.keys(localStorage);
+
+    // // сортируем массив по возрастанию
+    // keysArr = keysArr.sort(function(a, b) {
+    //     return a - b;
+    //     });
+    // return keysArr;
+
+    // другой вариант
+    return Object.keys(localStorage).sort(function(a, b) {
+        return a - b;
+        });
+}
 
 document.addEventListener('DOMContentLoaded', function(){
 
@@ -94,27 +104,29 @@ document.addEventListener('DOMContentLoaded', function(){
     function add_note() {
         const inputValue = document.querySelector('#areaAdd').value;
 
-        let l;    
+        let keyAdd; // значение ключа добавляемой записи
 
         if (inputValue == '') {
             alert('Вы ничего не написали. Запись не сохранена.');
+            return 0;
         } else {
             if (localStorage.length == 0) {
-                l = 0;
+                keyAdd = 0;
             } else {
-                let keysArr = Object.keys(localStorage);
-                keysArr = keysArr.sort(function(a, b) {
-                    return b - a;
-                });
-                l = +(keysArr[0]) + 1;
-            };
-            localStorage.setItem(l, inputValue);
+                // вызов функции получения массива ключей
+                let keysArr = keyArrAndSort();
 
-            createDivNote(l, localStorage.length - 1);
+                keyAdd = +(keysArr[localStorage.length - 1]) + 1;
+            };
+            localStorage.setItem(keyAdd, inputValue);
+
+            createDivNote(keyAdd, localStorage.length - 1);
+
+            // вызываем функцию анимации через таймаут
+            setTimeout(()=> animation(keyAdd), 500);
+
+            // обновим страницу для корректного отображения порядковых номеров
+            setTimeout(()=> location.reload(), 2200);  
         };
-        // вызываем функцию анимации через таймаут
-        setTimeout(()=> animation(l), 500);
-        // обновим страницу для корректного отображения порядковых номеров
-        setTimeout(()=> location.reload(), 2200);
     };
 });

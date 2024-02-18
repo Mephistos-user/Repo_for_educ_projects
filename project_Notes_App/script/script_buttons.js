@@ -34,7 +34,7 @@ function editNote(id) {
     inp.value = localStorage.getItem(cn);
 
     let btnOk = document.getElementById('btn-ok' + cn);
-    btnOk.style = 'display: block; background: green;'
+    btnOk.style = 'display: block; color: #FFFFFF; background-color: #47a12c;'
 };
 
 // функция сохранения
@@ -59,5 +59,7 @@ function saveNote(id) {
     let p = document.querySelector('#paragraf' + cn);
     p.style = 'display: block;';
     p.textContent = `${+cn - 2}: ` + localStorage.getItem(cn);
+
+    location.reload();
 };
 
