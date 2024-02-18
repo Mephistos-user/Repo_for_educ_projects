@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function(){
             setTimeout(()=> animation(keyAdd), 500);
 
             // обновим страницу для корректного отображения порядковых номеров
-            setTimeout(()=> location.reload(), 2200);  
+            setTimeout(()=> location.reload(), 1300);  
         };
     };
 });
