@@ -1,0 +1,24 @@
+html, button {
+    font-size: 70px;
+    padding: 0px;
+    margin: 0px;
+}
+
+div {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 300px;
+    height: 100px;
+    background-color: #229944;
+    padding: 5px;
+}
+button, span {
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    width: 90px;
+    background-color: #c5c535;
+    text-align: center;
+}
