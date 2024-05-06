@@ -1,21 +1,32 @@
-let cnt = 0;
-document.addEventListener('click', function() {
-// function button_click () {
-    // let cnt = 0;
+function counter (count) {
     let curCnt = document.querySelector('span');
-    let btnOnClck = document.querySelectorAll('button');
+    let cnt = Number(curCnt.textContent);
+    cnt = cnt + count;
+    curCnt.textContent = cnt;
+    // span_style_change();
 
-    if (btnOnClck.className == 'btn-') {
-        // let sp = document.createAttribute('span');
-        cnt--;
-        curCnt.textContent = cnt;
-        // sp.textContent = `${cnt}`;
-        // btnOnClck.append(sp);
+    if (elem.textContent > 0) {
+        elem.style.backgroundColor = 'green';
+    }
+    else if (elem.textContent < 0) {
+        elem.style.backgroundColor = 'yellow';
+    }
+    else elem.style.backgroundColor = 'white';
 
+
+};
+
+function span_style_change () {
+    let elem = document.getElementsById('sp-style').Number(textContent);
+    // elem.textContent = 'span_func';
+
+
+    if (elem.textContent > 0) {
+        elem.style.backgroundColor = 'green';
     }
-    else {
-        cnt++;
-        curCnt.textContent = cnt;
+    else if (elem.textContent < 0) {
+        elem.style.backgroundColor = 'yellow';
     }
-// };
-});
+    else elem.style.backgroundColor = 'white';
+};
+// document.addEventListener('DOMContentLoaded', span_style_change());
