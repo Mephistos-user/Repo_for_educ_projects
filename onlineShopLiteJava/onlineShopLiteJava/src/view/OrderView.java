@@ -5,21 +5,34 @@ import data.models.Product;
 import data.service.ShopService;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class CatalogView extends AppView {
-    public CatalogView( ShopService shopService, ArrayList<AppView> children) {
-        super("Каталог", children);
-        this.shopService = shopService;
-    }
+public class OrderView extends AppView {
 
     final ShopService shopService;
 
+    public OrderView(ShopService shopService) {
+        super("Оформление заказа", new ArrayList<>());
+        this.shopService = shopService;
+    }
+
+
     @Override
     public void action() {
-        ArrayList<Product> catalog = shopService.getCatalog();
-        for (Product product : catalog) {
-            System.out.println(product.id + " " + product.title + " " + product.price);
-        }
-        System.out.println();
+
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите свое имя");
+        String name = in.nextLine();
+        System.out.println("Введите свой телефон");
+        String phone = in.nextLine();
+        System.out.println("Введите свой адрес");
+        String address = in.nextLine();
+        System.out.println("Введите способ оплаты");
+        String paymentType = in.nextLine();
+        System.out.println("Введите время доставки");
+        String deliveryTime = in.nextLine();
+
+        shopService.createOrder(name, phone, address, paymentType, deliveryTime);
+        System.out.println("Товар оформлен");
     }
 }
