@@ -1,0 +1,59 @@
+html, button, h4 {
+    padding: 0px;
+    margin: 0px;
+}
+
+.container {
+    display: block;
+    margin: 100px auto;
+    width: 400px;
+    background-color: blueviolet;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content:center;
+    background: linear-gradient(#042653, #4f8fb4);
+    padding: 5px 0px;
+    border-radius: 5px;
+}
+
+button {
+    border: 2px solid #4d0707;
+    border-radius: 5px;
+    box-shadow: 3px 2px 3px 1px #922121;
+    padding: 5px;
+    margin: 5px;
+    width: 90px;
+    background: radial-gradient(#e08787, #7e0404);
+    text-align: center;
+    font-size: 70px;
+
+}
+#sp-style {
+    border: 1px solid #3f3f02;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    width: 90px;
+    background-color: red;
+    text-align: center;
+    font-size: 70px;
+
+}
+button:active {
+    box-shadow: 3px 1px 2px 1px inset;
+}
+
+#limited {
+    font-size: 32px;
+    border-radius: 5px;
+    padding: 5px 0px;
+    background: linear-gradient(to bottom right, #f03737, #f7f461);
+    text-align: center;
+}
+.dspl-none {
+    display: none;
+}
