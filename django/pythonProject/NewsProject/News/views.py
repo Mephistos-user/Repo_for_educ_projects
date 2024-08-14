@@ -18,6 +18,7 @@ def register(request):
             messages.success(request, 'Регистрация прошла успешно')
             user = form.save()
             login(request, user)
+            return redirect('Home')
         else:
             messages.error(request, 'Ошибка регистрации')
     else:

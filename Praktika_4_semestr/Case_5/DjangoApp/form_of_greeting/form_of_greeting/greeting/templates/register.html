@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ block.super}} :: Вход
+{% endblock %}
+
+{% block content %}
+    <h1>Вход</h1>
+    <form method="post" style="width: 1000px">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary btn-block">Войти</button>
+      {{ form.none_field.errors }}
+  </form>
+{% endblock %}

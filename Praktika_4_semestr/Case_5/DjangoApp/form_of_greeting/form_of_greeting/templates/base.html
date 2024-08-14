@@ -1,11 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
+{% include 'inc/_nav.html' %}
+
+{% load static %}
+
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greeting</title>
-</head>
-<body>
-    <h1>я тут</h1>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title> {% block title %}Главная страница приветствия{% endblock %} </title>
+      <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+      <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body style="background-color: #ccc">
+    <div class="container mt-3" >
+      <div class="col-md-8" style="margin: 0px auto;">
+        {% block content %}CONTENT{% endblock %}
+      </div>
+    </div>
+
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"> </script>
+  </body>
 </html>

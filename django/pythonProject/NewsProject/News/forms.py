@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from captcha.fields import CaptchaField
+
 class UserRegisterForm(UserCreationForm):
 
         username = forms.CharField(label='Имя пользователя', help_text='Максиммум 150 символов',

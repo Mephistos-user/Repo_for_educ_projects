@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <span class="navbar-text" style="margin-right: 20px; display: flex;">
+      {% if name %}
+        <span class="auth" style="margin-right: 50px; display: flex;">
+            Привет, {{ name }} | <a class="nav-link" href="{% url 'Logout' %}"> Выйти</a>
+        </span>
+      {% else %}
+        <span class="noauth" style="margin-right: 50px; display: flex;">
+            <a class="nav-link" href="{% url 'Register' %}">Войти</a>
+        </span>
+      {% endif %}
+    </span>
+</nav>
