@@ -9,7 +9,7 @@
     <form method="post" style="width: 1000px">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit" class="btn btn-primary btn-block">Войти</button>
+      <button type="submit" class="btn btn-primary btn-block">Submit</button>
       {{ form.none_field.errors }}
   </form>
 {% endblock %}
