@@ -6,37 +6,33 @@ btnPlus.addEventListener('click', () => counter(1));
 
 function counter (count) {
 
-    console.log(count);
-    let curCnt = document.getElementById('sp-style');
-    let cnt = Number(curCnt.textContent);
-    cnt = cnt + count;
-    curCnt.textContent = cnt;
-
-    let buttonPlus = document.querySelector('.btn-plus');
-    let buttonMinus = document.querySelector('.btn-minus');
+    let spanElement = document.getElementById('sp-style');
+    let spanElementContextNumber = Number(spanElement.textContent);
+    spanElementContextNumber = spanElementContextNumber + count;
+    spanElement.textContent = spanElementContextNumber;
 
     let limitDiv = document.getElementById('limited');
 
-    if (curCnt.textContent > 0) {
-        curCnt.style.backgroundColor = 'yellow';
+    if (spanElementContextNumber > 0) {
+        spanElement.style.backgroundColor = 'yellow';
     }
-    else if (curCnt.textContent < 0) {
-        curCnt.style.backgroundColor = 'green';
+    else if (spanElementContextNumber < 0) {
+        spanElement.style.backgroundColor = 'green';
     }
-    else curCnt.style.backgroundColor = 'red';
+    else spanElement.style.backgroundColor = 'red';
 
 
-    if (curCnt.textContent > 9) {
-        buttonPlus.setAttribute('disabled', true);
+    if (spanElementContextNumber > 9) {
+        btnPlus.setAttribute('disabled', true);
         limitDiv.classList.remove('dspl-none');
     }
-    else if (curCnt.textContent < -9) {
-        buttonMinus.setAttribute('disabled', true);
+    else if (spanElementContextNumber < -9) {
+        btnMinus.setAttribute('disabled', true);
         limitDiv.classList.remove('dspl-none');
     }
     else {
-        buttonMinus.removeAttribute('disabled');
-        buttonPlus.removeAttribute('disabled');
+        btnMinus.removeAttribute('disabled');
+        btnPlus.removeAttribute('disabled');
         limitDiv.classList.add('dspl-none');
     }
 };

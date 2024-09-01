@@ -24,7 +24,6 @@ class NameCreateForm(forms.ModelForm):
                         'class': 'form-control'
                     })
         }
-         
 
 
 

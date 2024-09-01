@@ -8,19 +8,6 @@ from .models import Names
 # from django.utils.safestring import mark_safe
 from django import forms
 
-# class Names(models.Model):
-#     name = models.CharField(max_length=150, verbose_name='Имя пользователя')
-    
-    # category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name='Категория')
-
-    # def get_absolute_url(self):
-    #     return reverse_lazy('View_news', kwargs={'pk': self.pk})
-
-    # class Meta:
-    #     verbose_name = 'Новость'
-    #     verbose_name_plural = 'Новости'
-    #     ordering = ['-create_at']
-
 class NamesAdminForm(forms.ModelForm):
 
     class Meta:

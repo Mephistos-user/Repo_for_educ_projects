@@ -1,14 +1,11 @@
 function counter (count) {
     let curCnt = document.getElementById('sp-style');
-    let cnt = Number(curCnt.textContent);
-    cnt = cnt + count;
-    curCnt.textContent = cnt;
+    curCnt.textContent = +(curCnt.textContent) + count;
 
     let buttonPlus = document.getElementById('btn+');
     let buttonMinus = document.getElementById('btn-');
 
     let limitDiv = document.getElementById('limited');
-    console.log(limitDiv.classList);
 
     if (curCnt.textContent > 0) {
         curCnt.style.backgroundColor = 'yellow';
