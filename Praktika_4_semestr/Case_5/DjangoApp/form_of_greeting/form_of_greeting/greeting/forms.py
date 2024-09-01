@@ -15,6 +15,8 @@ class NameCreateForm(forms.ModelForm):
         #Проверка того, что имя не пустое
         if name == '':
             raise ValidationError(_('Имя не может быть пустым'))
+        if len(name) < 2:
+            raise ValidationError(_('Имя не может содержать только 1 символ'))
         if re.match(r'\d', name):
             # raise ValueError('Имя не может начинатся с цифр')
             raise ValidationError(_('Имя не может начинатся с цифр'))
