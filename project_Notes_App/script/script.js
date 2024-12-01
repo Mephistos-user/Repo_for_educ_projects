@@ -22,7 +22,7 @@ function createDivNote(keyIndex, index) {
 
     // скрытое поле для ввода
     let inp = document.createElement('input');
-    inp.style = 'display: none';                
+    inp.style = 'display: none';
     inp.id = 'inp-area' + keyIndex;
 
     // кнопки редактировать, удалить, скрытая сохранить
@@ -52,7 +52,7 @@ function createDivNote(keyIndex, index) {
 };
 
 // функция вывода
-function outputNote() { 
+function outputNote() {
     // получаем массив ключей и сортируем
     let keysArr = keyArrAndSort();
     // вызываем последовательно циклично функцию создания контейнера
@@ -66,7 +66,7 @@ function outputNote() {
 outputNote();
 
 // функция анимации
-function animation(keyIndex) {   
+function animation(keyIndex) {
     
     let div_cont = document.getElementById('div-cont' + keyIndex);
 
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function(){
             setTimeout(()=> animation(keyAdd), 500);
 
             // обновим страницу для корректного отображения порядковых номеров
-            setTimeout(()=> location.reload(), 1300);  
+            setTimeout(()=> location.reload(), 1300);
         };
     };
 });
