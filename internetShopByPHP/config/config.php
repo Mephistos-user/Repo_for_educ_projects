@@ -8,7 +8,16 @@
     const PATHPREFIX = '../controllers/';
     const PATHPOSTFIX = 'Controller.php';
 
-    // Папака шаблона
+    // Константы для обращения к моделям (подключения к БД)
+    const DB_HOST = 'localhost';
+    const DB_USERNAME = 'root';
+    const DB_PASSWORD = '';
+    const DB_NAME = 'internetshopbyphp';
+
+    // Количество последних продуктов отображаемых на главной странице
+    const LASTPRODUCTS = 12;
+    
+    // Папка шаблона
     $templateFolder = 'default';
 
     // Пути к шаблонам
@@ -22,7 +31,7 @@
     require ('../library/Smarty/libs/Smarty.class.php');
     $smarty = new Smarty();
 
-    // Настройки Smarty
+    // Настройки Smarty (Конфигурация объекта smarty)
     // дирректория для хранения шаблонов .tpl
     $smarty->setTemplateDir(TMPLTPREFIX);
     // дирректория для хранения скомпилированных HTML страниц
@@ -32,5 +41,5 @@
     // дирректория для хранения конфигурации smarty
     $smarty->setConfigDir('../library/Smarty/configs/');
 
-
-    // Подключаем автозагрузчик классов
+    // Создаем smarty переменную (шаблон) ('templateWebPath' - имя переменной, TMPLTWEBPATH - значение переменной)
+    $smarty->assign('templateWebPath', TMPLTWEBPATH);

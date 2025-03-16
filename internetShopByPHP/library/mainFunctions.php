@@ -11,8 +11,34 @@
      * @param string $controllerName название контроллера
      * @param string $actionName название функции обработки страницы внутри контроллера
      */
-    function loadPage($controllerName, $actionName) {
+    function loadPage($smarty, $controllerName, $actionName = 'index') {
         include_once PATHPREFIX . $controllerName . PATHPOSTFIX;
         $function = $actionName . "Action";
-        $function();
+        $function($smarty);
+    }
+
+    /**
+     * 
+     * Загрузка шаблона сайта
+     * 
+     * @param string $templateName название шаблона
+     */
+    function loadTemplate($smarty, $templateName) {
+        $smarty->display($templateName . TMPLTPOSTFIX);
+    }
+
+    /**
+     * 
+     * Конвертирование результата запроса в массив для Smarty
+     * 
+     * @param mysqli_result $record результат запроса
+     * @return array $smartyRec массив для Smarty
+     */
+    function createSmartyRecArr($record) {
+        if(!$record) return false;
+        $smartyRec = array();
+        while($row = mysqli_fetch_array($record)) {
+            $smartyRec[] = $row;
+        }
+        return $smartyRec;
     }
