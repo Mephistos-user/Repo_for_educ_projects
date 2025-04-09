@@ -4,9 +4,7 @@
      * Главные функции проекта
      * 
      */
-    /**
-     * 
-     * Формирование запрашиваемой страницы
+    /** Формирование запрашиваемой страницы
      * 
      * @param string $controllerName название контроллера
      * @param string $actionName название функции обработки страницы внутри контроллера
@@ -17,9 +15,7 @@
         $function($smarty);
     }
 
-    /**
-     * 
-     * Загрузка шаблона сайта
+    /** Загрузка шаблона сайта
      * 
      * @param string $templateName название шаблона
      */
@@ -27,9 +23,7 @@
         $smarty->display($templateName . TMPLTPOSTFIX);
     }
 
-    /**
-     * 
-     * Конвертирование результата запроса в массив для Smarty
+    /** Конвертирование результата запроса в массив для Smarty
      * 
      * @param mysqli_result $record результат запроса
      * @return array $smartyRec массив для Smarty
@@ -41,4 +35,13 @@
             $smartyRec[] = $row;
         }
         return $smartyRec;
+    }
+
+    /** Перенаправление на другую страницу
+     * 
+     * @param string $url адрес страницы по умолчанию главная страница ("/")
+     */
+    function redirect($url = "/") {
+        header("Location: {$url}"); // header - позволяет отправить http заголовок
+        exit;
     }

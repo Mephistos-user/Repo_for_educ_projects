@@ -14,7 +14,7 @@
         $result = mysqli_query($link, $sql);
         //XXX
         // if($result === false) {
-        //     echo "Error" . mysqli_error($link);
+        //     echo "Ошибка выполнения запроса: ". mysqli_error($link);
         // }
         return createSmartyRecArr($result);
     }
@@ -53,4 +53,17 @@
         //     return false;
         // }
         return mysqli_fetch_assoc($result);
+    }
+
+    function getProductsFromArray($itemsIds) {
+        $strIds = implode($itemsIds, ', ');
+        $link = createConnection();
+        $sql = "SELECT * FROM products WHERE id IN (" . $strIds . ")";
+
+        $result = mysqli_query($link, $sql);
+        if ($result === false) {
+            echo "Ошибка выполнения запроса: ". mysqli_error($link);
+            echo $sql;
+        }
+        return createSmartyRecArr($result);
     }

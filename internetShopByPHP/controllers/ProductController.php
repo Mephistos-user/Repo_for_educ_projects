@@ -12,6 +12,7 @@
         // Получаем данные категории
         $recCategory = getCategoriesById($recProduct['category_id']);
 
+        // флаг - был ли товар добавлен ранее в корзину или нет
         $smarty->assign('itemInCart', 0);
         if(in_array($itemId, $_SESSION['cart'])) {
             $smarty->assign('itemInCart', 1);

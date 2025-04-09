@@ -18,8 +18,8 @@
                           <h5 class="card-title">{$recProduct['name_ru']}</h5>
                           <p class="card-text">{$recProduct['description']}</p>
                           <p class="card-text"><small class="text-muted">Стоимость: {$recProduct['price']}&#8381;</small></p>
-                          <a id="addCart_{$recProduct['id']}" onClick="addToCart({$recProduct['id']}); return false;" class="btn btn-primary order" href="#">В корзину</a>
-                          <a id="removeFromCart_{$recProduct['id']}" onClick="removeFromCart({$recProduct['id']}); return false;" style="display: none" class="btn btn-primary order" href="#">Удалить</a>
+                          <a id="addCart_{$recProduct['id']}" {if $itemInCart}style = "display: none"{/if} onClick="addToCart({$recProduct['id']}); return false;" class="btn btn-primary order" href="#">В корзину</a>
+                          <a id="removeFromCart_{$recProduct['id']}" {if !$itemInCart}style = "display: none"{/if} onClick="removeFromCart({$recProduct['id']}); return false;" class="btn btn-primary order" href="#">Удалить</a>
                         </div>
                       </div>
                     </div>
