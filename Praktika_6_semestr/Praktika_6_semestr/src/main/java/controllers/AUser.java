@@ -17,7 +17,7 @@ public abstract class AUser {
 
     public abstract AUser createNewUser(Integer id, String firstName, String surName, String secondName);
 
-    public abstract AUser updateUser(Integer id, String firstName, String surName, String secondName)
+    public abstract AUser updateUser(Integer id, String firstName, String surName, String secondName);
 
     public abstract ArrayList<AUser> getAllUsers();
 
