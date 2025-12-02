@@ -19,7 +19,7 @@ public class PageLoop {
             if (value <= 0 || value > (view.children.size() + 1)) {
                 System.out.println("Неверное значение страницы");
             } else if (value == view.children.size() + 1) {
-              break;
+                break;
             } else {
                 AppView selectedView = view.children.get(value - 1);
                 new PageLoop(selectedView).run();
