@@ -1,9 +1,8 @@
-package model;
+package worker;
 
 import utils.Utils;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Класс Worker
@@ -14,7 +13,7 @@ public class Worker {
     private String name; // Фамилия и инициалы
     private String position; // должность
     private Double salary; // зарплата
-    private Integer yearOfAdmissionToWork; // год поступления на работу
+    private int yearOfAdmissionToWork; // год поступления на работу
 
     // конструктор по умолчанию
     public Worker() {
@@ -27,7 +26,7 @@ public class Worker {
     }
 
     // конструктор с параметрами
-    public Worker(String surName, String position, Double salary, Integer yearOfAdmissionToWork) {
+    public Worker(String surName, String position, Double salary, int yearOfAdmissionToWork) {
         // устанавливаем ID объекта с помощью метода автоинкремента
         setId(Utils.autoIncrementId());
         this.name = surName;
@@ -39,82 +38,88 @@ public class Worker {
     /**
      * Создает нового сотрудника
      *
-     * @return - new Worker(name, position, salary, yearOfAdmissionToWork) новый объект типа Worker
+     * @return new Worker(name, position, salary, yearOfAdmissionToWork) новый объект типа Worker
      */
-    public static Worker createNewWorker() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите данные нового сотрудника: ");
-        System.out.println("Фамилия и инициалы?");
-        String name = scanner.nextLine();
-        System.out.println("Должность?");
-        String position = scanner.nextLine();
-        System.out.println("Зарплата в формате 100,05 (обязательно через запятую)?");
-        Double salary = scanner.nextDouble();
-        System.out.println("Год принятия на работу?");
-        Integer yearOfAdmissionToWork = scanner.nextInt();
+    public static Worker createNewWorker(HashMap<String, String> input) {
 
-        System.out.println("Сотрудник " + name + " создан");
+        System.out.println("Сотрудник " + input.get("name") + " создан");
 
-        return new Worker(name, position, salary, yearOfAdmissionToWork);
+        return new Worker(input.get("name"), input.get("position"), Double.valueOf(input.get("salary")), Integer.parseInt(input.get("year")));
     }
 
     /**
      * Обновляет данные о сотруднике
      *
-     * @param workersList - список объектов типа Worker
+     * @param workersList список сотрудников
      */
-    public static void updateWorker(ArrayList<Worker> workersList) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите ID сотрудника: ");
-        int idWorker = scanner.nextInt();
+    public static void updateWorker(ArrayList<Worker> workersList, HashMap<String, String> input, int idWorker) {
+
+        Worker worker = searchWorkerById(workersList, idWorker);
+        assert !(worker == null);
+
+        worker.setName(input.get("name"));
+        worker.setPosition(input.get("position"));
+        worker.setSalary(Double.valueOf(input.get("salary")));
+        worker.setYearOfAdmissionToWork(Integer.parseInt(input.get("year")));
+
+        System.out.println("Данные обновлены");
+    }
+
+    /**
+     * Поиск по ID
+     *
+     * @param workersList ArrayList<Worker> список сотрудников
+     * @return worker Worker сотрудник, найденный по ID
+     */
+    public static Worker searchWorkerById(ArrayList<Worker> workersList, int idWorker) {
         if (workersList.isEmpty()) {
-            System.out.println("Список сотрудников пуст. Добавьте новых сотрудников");
+            System.out.println("Список сотрудников пуст. Сначала добавьте новых сотрудников");
         }
         for (Worker worker : workersList) {
 
-            //TODO: отладка удалить
-            System.out.println(worker);
-
             if (worker.getId() == idWorker) {
-                System.out.println("Введите обновленные данные сотрудника: ");
-                System.out.println("Фамилия и инициалы?");
-                worker.setName(scanner.nextLine());
-                System.out.println("Должность?");
-                worker.setPosition(scanner.nextLine());
-                System.out.println("Зарплата в формате 100,05?");
-                worker.setSalary(scanner.nextDouble());
-                System.out.println("Год принятия на работу?");
-                worker.setYearOfAdmissionToWork(scanner.nextInt());
-
-                System.out.println("Данные обновлены");
+                return worker;
 
             } else {
                 System.out.println("Сотрудника с таким ID не существует");
             }
-            return;
         }
+        return null;
     }
 
     /**
      * Удаляет записи о сотруднике
      *
-     * @param workersList ArrayList<Worker> - список объектов типа Worker
+     * @param workersList список объектов типа Worker
      */
     public static void deleteWorker(ArrayList<Worker> workersList) {
+        Worker worker = Worker.getWorkerById(workersList);
+        if (!(worker == null)) {
+            System.out.println("Сотрудник с ID = " + worker.getName() + " удален");
+            workersList.remove(worker);
+        }
+    }
+
+    /**
+     * Получить данные сотрудника по ID
+     *
+     * @param workerList ArrayList<Worker> - список сотрудников
+     * @return worker || null Worker - возвращает сотрудника с указанным ID, если он найден, иначе NULL
+     */
+    public static Worker getWorkerById(ArrayList<Worker> workerList) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите ID сотрудника для удаления: ");
+        System.out.println("Введите ID сотрудника: ");
         int idWorker = scanner.nextInt(); // ввод ID искомого сотрудника
         // Поиск сотрудника в списке по ID
-        for (Worker worker : workersList) {
+        for (Worker worker : workerList) {
             int currentId = worker.getId();
             if (currentId == idWorker) {
-                workersList.remove(currentId);
+                return worker;
             } else {
                 System.out.println("Сотрудника с таким ID не существует");
-                return;
             }
         }
-        System.out.println("Сотрудник с ID = " + idWorker + " удален");
+        return null;
     }
 
     /**
@@ -183,7 +188,7 @@ public class Worker {
         return yearOfAdmissionToWork;
     }
 
-    public void setYearOfAdmissionToWork(Integer yearOfAdmissionToWork) {
+    public void setYearOfAdmissionToWork(int yearOfAdmissionToWork) {
         this.yearOfAdmissionToWork = yearOfAdmissionToWork;
     }
 
@@ -198,5 +203,20 @@ public class Worker {
                 ", Зарплата = " + salary +
                 ", Стаж работы с = " + yearOfAdmissionToWork + " года" +
                 '}';
+    }
+
+    /**
+     * Переопределение метода сравнения объектов equals()
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Worker worker = (Worker) o;
+        return idWorker == worker.idWorker &&
+                Objects.equals(name, worker.name) &&
+                Objects.equals(position, worker.position) &&
+                Objects.equals(salary, worker.salary) &&
+                Objects.equals(yearOfAdmissionToWork, worker.yearOfAdmissionToWork);
     }
 }

@@ -1,9 +1,10 @@
 package server;
 
-import model.Worker;
+import worker.Worker;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+
+import static utils.Utils.inputByUser;
 
 /**
  * Класс сервер
@@ -25,6 +26,8 @@ public class Server {
      */
     public void runServer(ArrayList<Worker> workersList) {
         System.out.println("Сервер запущен!");
+        Scanner scanner;
+        HashMap<String, String> input;
 
         while (this.exit) {
             System.out.println("Выберите действие:");
@@ -41,20 +44,26 @@ public class Server {
                 case 1:
                     // вызов метода создания нового сотрудника
                     System.out.println("Cоздаю нового сотрудника");
-                    workersList.add(Worker.createNewWorker());
+                    input = inputByUser();
+
+                    workersList.add(Worker.createNewWorker(input));
                     continue;
                 case 2:
                     System.out.println("Введите год, от которого считать стаж?");
-                    Scanner scanner = new Scanner(System.in);
+                    scanner = new Scanner(System.in);
                     Integer year = scanner.nextInt();
                     // вызов метода вывода сотрудников, чей стаж больше указанного
                     System.out.println("Вывожу сотрудников, чей стаж больше указанного");
                     Worker.getTopWorkersByStage(workersList, year);
                     continue;
                 case 3:
+                    System.out.println("Введите ID сотрудника?");
+                    scanner = new Scanner(System.in);
+                    int idWorker = scanner.nextInt();
+                    input = inputByUser();
                     // вызов метода обновления данных сотрудника
                     System.out.println("Обновляю данные сотрудника");
-                    Worker.updateWorker(workersList);
+                    Worker.updateWorker(workersList, input, idWorker);
                     continue;
                 case 4:
                     // вызов метода удаления сотрудника

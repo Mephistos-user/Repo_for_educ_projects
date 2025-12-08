@@ -1,4 +1,4 @@
-import model.Worker;
+import worker.Worker;
 import server.Server;
 
 import java.util.ArrayList;
