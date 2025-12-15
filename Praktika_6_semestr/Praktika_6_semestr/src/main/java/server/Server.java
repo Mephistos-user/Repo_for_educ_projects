@@ -2,7 +2,9 @@ package server;
 
 import worker.Worker;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
 
 import static utils.Utils.inputByUser;
 
@@ -28,6 +30,7 @@ public class Server {
         System.out.println("Сервер запущен!");
         Scanner scanner;
         HashMap<String, String> input;
+        int idWorker;
 
         while (this.exit) {
             System.out.println("Выберите действие:");
@@ -45,21 +48,28 @@ public class Server {
                     // вызов метода создания нового сотрудника
                     System.out.println("Cоздаю нового сотрудника");
                     input = inputByUser();
-
-                    workersList.add(Worker.createNewWorker(input));
+                    Worker newWorker = Worker.createNewWorker(input);
+                    workersList.add(newWorker);
                     continue;
                 case 2:
                     System.out.println("Введите год, от которого считать стаж?");
                     scanner = new Scanner(System.in);
                     Integer year = scanner.nextInt();
-                    // вызов метода вывода сотрудников, чей стаж больше указанного
-                    System.out.println("Вывожу сотрудников, чей стаж больше указанного");
-                    Worker.getTopWorkersByStage(workersList, year);
+                    // вызов метода получения сотрудников, чей стаж больше указанного
+                    ArrayList<Worker> topWorkersByStage = Worker.getTopWorkersByStage(workersList, year);
+                    if (!topWorkersByStage.isEmpty()) {
+                        System.out.println("Вывожу сотрудников, чей стаж больше указанного");
+                        for (Worker worker : topWorkersByStage) {
+                            System.out.println(worker);
+                        }
+                    } else {
+                        System.out.println("Сотрудников со стажем больше " + year + " нет");
+                    }
                     continue;
                 case 3:
                     System.out.println("Введите ID сотрудника?");
                     scanner = new Scanner(System.in);
-                    int idWorker = scanner.nextInt();
+                    idWorker = scanner.nextInt();
                     input = inputByUser();
                     // вызов метода обновления данных сотрудника
                     System.out.println("Обновляю данные сотрудника");
@@ -68,7 +78,9 @@ public class Server {
                 case 4:
                     // вызов метода удаления сотрудника
                     System.out.println("Удаляю сотрудника");
-                    Worker.deleteWorker(workersList);
+                    scanner = new Scanner(System.in);
+                    idWorker = scanner.nextInt();
+                    Worker.deleteWorker(workersList, idWorker);
                     continue;
                 case 0:
                     // выход из программы (остановка сервера)

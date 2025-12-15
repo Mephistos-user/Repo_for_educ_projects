@@ -1,9 +1,10 @@
-package worker;
+package workerTest;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import worker.Worker;
 
 import java.util.ArrayList;
 import java.util.HashMap;

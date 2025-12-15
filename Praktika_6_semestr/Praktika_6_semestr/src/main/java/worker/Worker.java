@@ -2,13 +2,15 @@ package worker;
 
 import utils.Utils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * Класс Worker
  */
 public class Worker {
-    private static int countOfId = 0; // счетчик ID
+    private static int countOfId; // счетчик ID
     private int idWorker; // ID объекта
     private String name; // Фамилия и инициалы
     private String position; // должность
@@ -54,7 +56,7 @@ public class Worker {
      */
     public static void updateWorker(ArrayList<Worker> workersList, HashMap<String, String> input, int idWorker) {
 
-        Worker worker = searchWorkerById(workersList, idWorker);
+        Worker worker = getWorkerById(workersList, idWorker);
         assert !(worker == null);
 
         worker.setName(input.get("name"));
@@ -69,22 +71,24 @@ public class Worker {
      * Поиск по ID
      *
      * @param workersList ArrayList<Worker> список сотрудников
+     * @param idWorker    int id сотрудника
      * @return worker Worker сотрудник, найденный по ID
      */
-    public static Worker searchWorkerById(ArrayList<Worker> workersList, int idWorker) {
+    public static Worker getWorkerById(ArrayList<Worker> workersList, int idWorker) {
+        Worker currentWorker = null;
         if (workersList.isEmpty()) {
             System.out.println("Список сотрудников пуст. Сначала добавьте новых сотрудников");
         }
         for (Worker worker : workersList) {
 
             if (worker.getId() == idWorker) {
-                return worker;
+                currentWorker = worker;
 
             } else {
                 System.out.println("Сотрудника с таким ID не существует");
             }
         }
-        return null;
+        return currentWorker;
     }
 
     /**
@@ -92,34 +96,12 @@ public class Worker {
      *
      * @param workersList список объектов типа Worker
      */
-    public static void deleteWorker(ArrayList<Worker> workersList) {
-        Worker worker = Worker.getWorkerById(workersList);
+    public static void deleteWorker(ArrayList<Worker> workersList, int idWorker) {
+        Worker worker = Worker.getWorkerById(workersList, idWorker);
         if (!(worker == null)) {
-            System.out.println("Сотрудник с ID = " + worker.getName() + " удален");
+            System.out.println("Сотрудник с ID = " + worker.getId() + " удален");
             workersList.remove(worker);
         }
-    }
-
-    /**
-     * Получить данные сотрудника по ID
-     *
-     * @param workerList ArrayList<Worker> - список сотрудников
-     * @return worker || null Worker - возвращает сотрудника с указанным ID, если он найден, иначе NULL
-     */
-    public static Worker getWorkerById(ArrayList<Worker> workerList) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите ID сотрудника: ");
-        int idWorker = scanner.nextInt(); // ввод ID искомого сотрудника
-        // Поиск сотрудника в списке по ID
-        for (Worker worker : workerList) {
-            int currentId = worker.getId();
-            if (currentId == idWorker) {
-                return worker;
-            } else {
-                System.out.println("Сотрудника с таким ID не существует");
-            }
-        }
-        return null;
     }
 
     /**
@@ -127,21 +109,16 @@ public class Worker {
      *
      * @param workersList ArrayList<Worker> - список объектов типа Worker
      * @param year        Integer - год, раньше которого искомые сотрудники приняты на работу
+     * @return topWorkersByStage ArrayList<Worker>
      */
-    public static void getTopWorkersByStage(ArrayList<Worker> workersList, Integer year) {
+    public static ArrayList<Worker> getTopWorkersByStage(ArrayList<Worker> workersList, Integer year) {
         ArrayList<Worker> topWorkersByStage = new ArrayList<>();
         for (Worker currentWorker : workersList) {
             if (currentWorker.getYearOfAdmissionToWork() < year) {
                 topWorkersByStage.add(currentWorker);
             }
         }
-        if (!topWorkersByStage.isEmpty()) {
-            for (int i = 0; i < topWorkersByStage.size(); i++) {
-                System.out.println(topWorkersByStage.get(i));
-            }
-        } else {
-            System.out.println("Сотрудников со стажем больше " + year + " нет");
-        }
+        return topWorkersByStage;
     }
 
     public static int getCountOfId() {
