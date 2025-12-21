@@ -21,13 +21,12 @@ class Category(models.Model):
     
     def get_absolute_url(self):
         '''получение URL-адреса объекта Category'''
-        return reverse('pollen62App:product_list_by_category', args=[self.slug])
+        return reverse('shop:product_list_by_category', args=[self.slug])
 
 class Product(models.Model):
     '''
     Модель товара
     '''
-    # id = models.BigAutoField
     category = models.ForeignKey(Category,
                                 verbose_name=u"Категория",
                                 related_name='products',
@@ -58,4 +57,4 @@ class Product(models.Model):
     def get_absolute_url(self):
         '''получение URL-адреса объекта Product'''
         # TODO: добавить поле ID в Product
-        return reverse('pollen62App:product_detail', args=[self.id, self.slug])
+        return reverse('shop:product_detail', args=[self.id, self.slug])

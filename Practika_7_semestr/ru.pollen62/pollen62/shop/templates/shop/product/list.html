@@ -1,14 +1,16 @@
-{% extends "pollen62App/base.html" %}
+{% extends "shop/base.html" %}
 {% load static %}
+
 {% block title %}
     {% if category %}{{ category.name }}{% else %}Products{% endif %}
 {% endblock %}
+
 {% block content %}
     <div id="sidebar">
         <h3>Категории</h3>
         <ul>
             <li {% if not category %}class="selected"{% endif %}>
-            <a href="{% url 'pollen62App:product_list' %}">Все</a>
+            <a href="{% url 'shop:product_list' %}">Все</a>
             </li>
             {% for c in categories %}
                 <li {% if category.slug == c.slug %} class="selected" {% endif %}>
